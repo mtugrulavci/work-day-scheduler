@@ -39,6 +39,7 @@ function getData(){
  }if (hours[i]>currentTime){
   $(desc[i]).addClass("future");
 }};
+ //console.log("REFRESHED !");
  };
  //Save the text in the field
 
