@@ -1,6 +1,6 @@
 
 // Set date for header
-$("#currentDay").html( moment(Date()).format('dddd,MMMM Do'));
+$("#currentDay").html( moment(Date()).format('dddd, MMMM Do'));
 //get the hour value of the date
 moment().format('HH');
 currentTime = parseInt(moment(Date()).format('H') );  
