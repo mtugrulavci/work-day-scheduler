@@ -5,6 +5,10 @@ $("#currentDay").html( moment(Date()).format('dddd, Do MMMM'));
 moment().format('HH');
 currentTime = parseInt(moment(Date()).format('H') );  
 
+var hours = [ 9, 10,11, 12, 13,14,15,16,17];
+var desc = $(".description")
+
+function getData(){
  var nine = localStorage.getItem('nine');
  var nineAm = $("#9am-txt").val(nine);
  var ten = localStorage.getItem('ten');
@@ -23,12 +27,10 @@ currentTime = parseInt(moment(Date()).format('H') );
  var fourPm = $("#4pm-txt").val(four);
  var five = localStorage.getItem('five');
  var fivePm = $("#5pm-txt").val(five);
-
-
- var hours = [ 9, 10,11, 12, 13,14,15,16,17];
- var desc = $(".description")
+};
 
  //parsedNine = parseInt($("#9am-h").text());
+ function colorSet(){
  for (i = 0; i <hours.length;i++){
  if (hours[i] === currentTime){
   $(desc[i]).addClass("present");
@@ -37,7 +39,8 @@ currentTime = parseInt(moment(Date()).format('H') );
  }if (hours[i]>currentTime){
   $(desc[i]).addClass("future");
 }};
-
+ };
+function save(){
 $("#9am-btn").click( function(){
   var nine = $("#9am-txt").val();
   localStorage.setItem('nine', nine);
@@ -74,3 +77,15 @@ $("#5pm-btn").click( function(){
   var five = $("#5pm-txt").val();
   localStorage.setItem('five', five);
 });
+};
+function toDo(){
+getData();
+colorSet();
+save();
+};
+
+toDo();
+
+setInterval(function(){
+  toDo();
+}, 60000);
