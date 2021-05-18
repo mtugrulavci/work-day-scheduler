@@ -84,12 +84,11 @@ function toDo(){
 getData();
 colorSet();
 save();
+console.log("Refreshed!");
 };
 
 //run the funtion
 toDo();
 
 //refresh the page every minute
-setInterval(function(){
-  toDo();
-}, 60000);
+setInterval(toDo, 60000);
