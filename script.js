@@ -7,7 +7,7 @@ currentTime = parseInt(moment(Date()).format('H') );
 
 var hours = [ 9, 10,11, 12, 13,14,15,16,17];
 var desc = $(".description")
-
+// get data from the localStorage
 function getData(){
  var nine = localStorage.getItem('nine');
  var nineAm = $("#9am-txt").val(nine);
@@ -29,7 +29,7 @@ function getData(){
  var fivePm = $("#5pm-txt").val(five);
 };
 
- //parsedNine = parseInt($("#9am-h").text());
+// Set the color backgroung 
  function colorSet(){
  for (i = 0; i <hours.length;i++){
  if (hours[i] === currentTime){
@@ -40,6 +40,7 @@ function getData(){
   $(desc[i]).addClass("future");
 }};
  };
+ //Save the text in the field
 function save(){
 $("#9am-btn").click( function(){
   var nine = $("#9am-txt").val();
@@ -78,14 +79,17 @@ $("#5pm-btn").click( function(){
   localStorage.setItem('five', five);
 });
 };
+// Main function
 function toDo(){
 getData();
 colorSet();
 save();
 };
 
+//run the funtion
 toDo();
 
+//refresh the page every minute
 setInterval(function(){
   toDo();
 }, 60000);
