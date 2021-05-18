@@ -41,7 +41,7 @@ function getData(){
 }};
  };
  //Save the text in the field
-function save(){
+
 $("#9am-btn").click( function(){
   var nine = $("#9am-txt").val();
   localStorage.setItem('nine', nine);
@@ -78,17 +78,15 @@ $("#5pm-btn").click( function(){
   var five = $("#5pm-txt").val();
   localStorage.setItem('five', five);
 });
-};
+
 // Main function
 function toDo(){
 getData();
 colorSet();
-save();
-console.log("Refreshed!");
 };
 
 //run the funtion
 toDo();
 
 //refresh the page every minute
-setInterval(toDo, 60000);
+setInterval(colorSet, 1000);
